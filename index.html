@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shakka Shirogane — Fiche Personnage RP</title>
+  <style>
+    :root {
+      --bg-main: #0d0d0f;
+      --bg-card: #141519;
+      --border-color: #2a2b35;
+      --sand-gold: #d4af37;
+      --sand-amber: #c87d32;
+      --desert-clay: #a0522d;
+      --oto-purple: #7b5294;
+      --text-main: #e2e2e8;
+      --text-muted: #8d8e9d;
+      --kiri-blue: #09AEC8
+      --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.7;
+      padding: 30px 15px;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(200, 125, 50, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(123, 82, 148, 0.05) 0%, transparent 40%);
+    }
+
+    /* STRUCTURE PRINCIPALE : 2 COLONNES AVEC INFOBOX FIXE À DROITE */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 30px;
+      align-items: start;
+    }
+
+    /* BANNIÈRE EN-TÊTE */
+    .header-banner {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #181920 0%, #0d0d0f 100%);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--sand-gold);
+      padding: 25px 30px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-title h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .header-title span {
+      color: var(--sand-gold);
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .header-badges {
+      display: flex;
+      gap: 10px;
+    }
+
+    .badge {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--sand-gold);
+      color: var(--sand-gold);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge.oto {
+      background: rgba(123, 82, 148, 0.1);
+      border-color: var(--oto-purple);
+      color: #b388ff;
+    }
+
+    /* ONGLETS NAVIGATION */
+    .page-nav {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 12px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .nav-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 10px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-tab:hover {
+      color: #fff;
+      border-color: var(--sand-gold);
+    }
+
+    .nav-tab.active {
+      background: var(--sand-gold);
+      color: #0d0d0f;
+      border-color: var(--sand-gold);
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .page-view {
+      display: none;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .page-view.active {
+      display: flex;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--sand-gold);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 18px;
+      background: var(--sand-amber);
+      border-radius: 2px;
+    }
+
+    .toc-box {
+      background: rgba(20, 21, 25, 0.6);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--sand-amber);
+      padding: 18px;
+      border-radius: 6px;
+    }
+
+    .toc-box h3 {
+      font-size: 1rem;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .toc-box ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
+    }
+
+    .toc-box a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .toc-box a:hover {
+      color: var(--sand-gold);
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-main);
+      text-align: justify;
+      font-size: 0.98rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* BACKGROUNDS DES CHAPITRES */
+    #chap1 {
+      background: linear-gradient(135deg, var(--bg-card) 50%, rgba(212, 175, 55, 0.12));
+      border-left: 4px solid var(--sand-gold);
+    }
+
+    #chap2 {
+      background: linear-gradient(135deg, var(--bg-card) 50%, rgba(160, 82, 45, 0.2));
+      border-left: 4px solid var(--sand-amber);
+    }
+
+    #chap3 {
+      background: linear-gradient(135deg, var(--bg-card) 40%, rgba(139, 0, 0, 0.25));
+      border-left: 4px solid #8b0000;
+      box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.15);
+    }
+
+    #chap4 {
+      background: linear-gradient(135deg, var(--bg-card) 50%, rgba(47, 79, 79, 0.25));
+      border-left: 4px solid #4682b4;
+    }
+
+    #chap5 {
+      background: linear-gradient(135deg, var(--bg-card) 50%, rgba(123, 82, 148, 0.25));
+      border-left: 4px solid var(--oto-purple);
+      box-shadow: inset 0 0 20px rgba(123, 82, 148, 0.15);
+    }
+
+    /* GRILLE DE JUTSUS */
+    .jutsu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .jutsu-card-v2 {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 16px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .jutsu-card-v2:hover {
+      transform: translateY(-2px);
+      border-color: var(--sand-gold);
+    }
+
+    .jutsu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .jutsu-title {
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .rank-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .rank-s { background: rgba(255, 77, 77, 0.2); color: #ff4d4d; border: 1px solid #ff4d4d; }
+    .rank-a { background: rgba(255, 165, 0, 0.2); color: #ffa500; border: 1px solid #ffa500; }
+    .rank-b { background: rgba(212, 175, 55, 0.2); color: var(--sand-gold); border: 1px solid var(--sand-gold); }
+    .rank-c { background: rgba(70, 130, 180, 0.2); color: #4682b4; border: 1px solid #4682b4; }
+    .rank-d { background: rgba(128, 128, 128, 0.2); color: #aaa; border: 1px solid #aaa; }
+
+    /* TABLE DE MISSIONS */
+    .missions-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .missions-table th {
+      background: rgba(0, 0, 0, 0.4);
+      color: var(--sand-gold);
+      text-align: left;
+      padding: 12px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .missions-table td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .missions-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* ÉQUIPEMENTS */
+    .equip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .equip-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--sand-amber);
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .equip-item h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    /* BANNIÈRE MARIONNETTES */
+    .marionettes-banner-trigger {
+      position: relative;
+      height: 140px;
+      border-radius: 8px;
+      border: 2px solid var(--sand-gold);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)), 
+                  url('https://via.placeholder.com/1000x300/1e1208/d4af37?text=MARIONNETTES') center/cover no-repeat;
+    }
+
+    .marionettes-banner-trigger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+    }
+
+    .marionettes-banner-trigger h2 {
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 0 2px 5px #000;
+      z-index: 2;
+    }
+
+    .marionettes-banner-trigger span {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: var(--sand-gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* SÉLECTEUR DE PERSONNAGE */
+    .puppet-select-wrapper {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    .puppet-select-wrapper.open {
+      display: flex;
+    }
+
+    .roster-grid {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .roster-card {
+      min-width: 110px;
+      height: 170px;
+      border: 2px solid var(--border-color);
+      border-radius: 6px;
+      background: var(--bg-card);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .roster-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(60%);
+      transition: filter 0.2s, transform 0.2s;
+    }
+
+    .roster-card .card-name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--text-main);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 6px 2px;
+      border-top: 1px solid var(--border-color);
+      text-transform: uppercase;
+    }
+
+    .roster-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    .roster-card.selected {
+      border-color: var(--sand-gold);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+    }
+
+    .roster-card.selected img {
+      filter: grayscale(0%);
+    }
+
+    .roster-card.selected .card-name {
+      background: var(--sand-gold);
+      color: #000;
+    }
+
+    /* PANNEAU D'AFFICHAGE DÉTAILLÉ DE LA MARIONNETTE */
+    .puppet-display-panel {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .puppet-portrait {
+      width: 100%;
+      height: 320px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      background: #000;
+    }
+
+    .puppet-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .puppet-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .puppet-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .puppet-title-bar h3 {
+      font-size: 1.5rem;
+      color: var(--sand-gold);
+    }
+
+    .puppet-description {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .powers-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--sand-amber);
+      padding: 12px 15px;
+      border-radius: 4px;
+      margin-top: auto;
+    }
+
+    .powers-box h4 {
+      color: #fff;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .powers-box ul {
+      list-style-position: inside;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .powers-box li {
+      margin-bottom: 3px;
+    }
+
+    /* INFOBOX LATÉRALE (FIXE À DROITE) */
+    .infobox {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      overflow: hidden;
+      position: sticky;
+      top: 20px;
+    }
+
+    .infobox-header {
+      background: linear-gradient(135deg, var(--sand-amber) 0%, var(--desert-clay) 100%);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+
+    .infobox-img {
+      width: 100%;
+      height: 320px;
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .infobox-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .infobox-sub {
+      background: var(--bg-main);
+      color: var(--sand-gold);
+      text-align: center;
+      padding: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .info-table td {
+      padding: 10px 14px;
+    }
+
+    .info-table td.label {
+      color: var(--text-muted);
+      width: 40%;
+      font-weight: 500;
+    }
+
+    .info-table td.value {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    details {
+      border-top: 1px solid var(--border-color);
+    }
+
+    summary {
+      padding: 12px 15px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--sand-gold);
+      background: rgba(0, 0, 0, 0.2);
+      user-select: none;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .details-body {
+      padding: 12px 15px;
+      font-size: 0.85rem;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .details-body ul {
+      list-style-position: inside;
+      color: var(--text-muted);
+    }
+
+    .details-body li {
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .infobox {
+        position: static;
+      }
+      .puppet-display-panel {
+        grid-template-columns: 1fr;
+      }
+      .puppet-portrait {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- BANNIÈRE EN-TÊTE -->
+  <div class="header-banner">
+    <div class="header-title">
+      <h1>Shakka Shirogane</h1>
+      <span>« J'ai pas encore d'idée de surnom  »</span>
+    </div>
+    <div class="header-badges">
+      <span class="badge">???</span>
+      <span class="badge oto">Otogakure</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION DES ONGLETS -->
+  <div class="page-nav">
+    <button class="nav-tab active" onclick="switchView('profil-view', this)">Fiche du Personnage</button>
+    <button class="nav-tab" onclick="switchView('equipement-view', this)">Équipements & Armes</button>
+    <button class="nav-tab" onclick="switchView('missions-view', this)">Bilan des Missions</button>
+  </div>
+
+  <!-- COLONNE PRINCIPALE (GAUCHE) -->
+  <div class="main-content">
+
+    <!-- PAGE 1 : PROFIL & JUTSUS -->
+    <div id="profil-view" class="page-view active">
+
+      <div class="toc-box">
+        <h3>Sommaire</h3>
+        <ul>
+          <li><a href="#profil">1. Aperçu & Psychologie</a></li>
+          <li><a href="#chap1">2. Chapitre I : La Naissance d'un Prodige</a></li>
+          <li><a href="#chap2">3. Chapitre II : La Traversée des Sables Rouges</a></li>
+          <li><a href="#chap3">4. Chapitre III : L'Empreinte du Sang</a></li>
+          <li><a href="#chap4">5. Chapitre IV : La Terre Humide du Nord</a></li>
+          <li><a href="#chap5">6. Chapitre V : L'Ombre d'Otogakure</a></li>
+          <li><a href="#jutsus">7. Répertoire des Jutsus</a></li>
+        </ul>
+      </div>
+<style>
+
+  .card-accordion {
+    background: linear-gradient(145deg, #131519, #0d0e11);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 4px;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+  }
+
+  .card-accordion:hover {
+    transform: translateY(-3px);
+  }
+
+
+  .card-accordion#profil { 
+    border: 1px solid #902020; 
+    box-shadow: 0 4px 20px rgba(144, 32, 32, 0.25); 
+  }
+  .card-accordion#histoire-chapitre-1 { 
+    border: 1px solid #d4ac0d; 
+    box-shadow: 0 4px 20px rgba(212, 172, 13, 0.2); 
+  }
+  .card-accordion#histoire-chapitre-2 { 
+    border: 1px solid #d35400; 
+    box-shadow: 0 4px 20px rgba(211, 84, 0, 0.2); 
+  }
+  .card-accordion#chap3 { 
+    border: 1px solid #78281f; 
+    box-shadow: 0 4px 20px rgba(120, 40, 31, 0.35); 
+  }
+  .card-accordion#chap4 { 
+    border: 1px solid #1f618d; 
+    box-shadow: 0 4px 20px rgba(31, 97, 141, 0.3); 
+  }
+  .card-accordion#chap5 { 
+    border: 1px solid #512e5f; 
+    box-shadow: 0 4px 20px rgba(81, 46, 95, 0.35); 
+  }
+
+  /* Hover accentué */
+  .card-accordion#profil:hover { box-shadow: 0 6px 25px rgba(144, 32, 32, 0.4); }
+  .card-accordion#histoire-chapitre-1:hover { box-shadow: 0 6px 25px rgba(212, 172, 13, 0.35); }
+  .card-accordion#histoire-chapitre-2:hover { box-shadow: 0 6px 25px rgba(211, 84, 0, 0.35); }
+  .card-accordion#chap3:hover { box-shadow: 0 6px 25px rgba(120, 40, 31, 0.5); }
+  .card-accordion#chap4:hover { box-shadow: 0 6px 25px rgba(31, 97, 141, 0.45); }
+  .card-accordion#chap5:hover { box-shadow: 0 6px 25px rgba(81, 46, 95, 0.5); }
+
+  /* ==========================================
+     EN-TÊTE / SUMMARY
+     ========================================== */
+  .card-accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: #181a20;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: background 0.2s ease;
+  }
+
+  .card-accordion summary:hover {
+    background: #1f222a;
+  }
+
+  .card-accordion summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Titre centré + barre de couleur */
+  .summary-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+  }
+
+  .summary-title::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 18px;
+    border-radius: 3px;
+    background-color: currentColor;
+    box-shadow: 0 0 8px currentColor;
+  }
+
+  /* Flèche indicatrice */
+  .arrow {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .card-accordion[open] .arrow {
+    transform: rotate(180deg);
+    color: #ffffff;
+  }
+
+  /* ==========================================
+     CONTENU TEXTE
+     ========================================== */
+  .card-accordion .content {
+    padding: 20px 24px 15px 24px;
+    line-height: 1.7;
+    font-size: 0.96rem;
+    background: rgba(10, 10, 12, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .card-accordion .content p {
+    margin-top: 0;
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+
+  .card-accordion .content p:last-child {
+    margin-bottom: 0;
+  }
+</style>
+
+<!-- PROFIL -->
+<details class="card-accordion" id="profil" open>
+  <summary>
+    <div class="summary-title" style="color: #e74c3c;">Aperçu & Psychologie</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>Shakka est un jeune homme doté d'un <span style="color: #e74c3c; font-weight: bold;">sang-froid à toute épreuve</span>, incapable de laisser ses émotions prendre le dessus que ce soit en plein combat ou lors d'une simple discussion. Pour lui, la colère, l'impulsivité ou la panique ne sont que des failles grossières chez un ninja ; c'est pourquoi il s'exprime constamment avec un ton posé, poli et glacial, conservant une <span style="color: #e74c3c; font-weight: bold;">maîtrise de soi absolue</span> en toute circonstance. Cette maîtrise n'a rien de la timidité : c'est un outil calculé qui lui permet de rester totalement illisible tout en gardant le contrôle du rythme de l'affrontement.</p>
+
+    <p>Derrière cette façade imperturbable se cache pourtant une <span style="color: #e74c3c; font-weight: bold;">haine incroyablement profonde envers Sunagakure</span>, son village d'origine qu'il a fini par déserter. Même si Suna appartient désormais au passé, sa rancœur reste intacte face au rejet, aux traditions restrictives et aux trahisons subies par le clan Shirogane. Plutôt que d'exploser en désirs de destruction aveugles, cette haine s'est métamorphosée en une ambition froide : prouver que son art et sa puissance dépassent de loin tout ce que Suna cherchait à brider chez lui.</p>
+
+    <p>Imprégné de l'héritage de son clan, Shakka voue un culte à l'art de la marionnette ainsi qu'aux armes, considérant la <span style="color: #e74c3c; font-weight: bold;">chair humaine comme une structure fragile, imparfaite et vouée à se détériorer</span>. Il observe ainsi le monde d'un œil lointain, analysant ses alliés comme ses ennemis sous un angle purement utilitaire et évaluant leur valeur stratégique sans jamais s'encombrer du moindre sentiment.</p>
+
+    <p>En tant que <span style="color: #e74c3c; font-weight: bold;">chef du Quartet du Son</span>, son autorité ne repose pas sur des démonstrations de force inutiles, mais sur une présence imposante et une maîtrise tactique irréprochable. Il n'a pas besoin de hausser la voix pour se faire obéir car il dirige son groupe comme un vrai chef de guerre. Sa loyauté envers Otogakure est avant tout <span style="color: #e74c3c; font-weight: bold;">pragmatique et réfléchie</span>, conscient que ce village est la seule structure capable de lui fournir les ressources et la liberté nécessaires pour concrétiser ses ambitions.</p>
+  </div>
+</details>
+
+<!-- CHAPITRE 1 -->
+<details class="card-accordion" id="histoire-chapitre-1">
+  <summary>
+    <div class="summary-title" style="color: #f1c40f;">Chapitre I : La naissance d'un Prodige</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>C’est sous le soleil écrasant et l'atmosphère aride de <span style="color: #f39c12; font-weight: bold; text-decoration: underline;">Sunagakure</span> que Shakka vit le jour. Descendant du <span style="color: #f39c12; font-weight: bold;">clan Shirogane</span>, une lignée autrefois célèbre pour sa maîtrise hors pair du marionnettisme, le jeune garçon grandit sans véritablement mesurer le poids de son nom. Dans les ruelles poussiéreuses du village, il menait l'existence d'un enfant comme un autre. Très tôt, Shakka développa une aisance naturelle avec le chakra mais, n'ayant pas encore de véritable marionnette entre les mains, il s'amusa simplement à faire bouger de simples morceaux de bois en tendant de <span style="color: #f1c40f; text-decoration: underline;">fins fils de chakra invisibles</span> entre ses doigts. Pour Shakka, ce n'était alors qu'un jeu d'enfant innocent.</p>
+
+    <p>Cependant, dans un village où chaque compétence militaire était scrutée avec une avidité maladive, l'innocence ne durait jamais très longtemps. La vue de ce jeune Shirogane traînant seul et manipulant le chakra avec une aisance déconcertante ne tarda pas à attirer l'attention des chefs de Sunagakure. Le <span style="color: #f39c12; font-weight: bold;">gouvernement de Suna</span>, cherchant constamment à mettre la main sur les secrets des anciens clans, ne vit pas en Shakka un enfant à protéger mais une opportunité facile à saisir. Sa solitude en faisait une cible idéale pour une opération discrète.</p>
+
+    <p>Un soir, alors que Shakka s'était éloigné pour s'exercer en toute tranquillité, le piège se referma. Sans la moindre hésitation, des hommes envoyés par les autorités du village se dirigèrent sur lui. Pris au dépourvu, <span style="color: #f39c12; font-weight: bold; text-decoration: underline;">sans aucune marionnette</span> pour se défendre, le jeune garçon fut neutralisé en un instant, privé de sa liberté et emmené du côté obscur de Suna. Ce kidnapping orchestré par son propre village marqua la fin nette de son enfance.</p>
+
+    <p>Shakka fut emmené loin de son village, transféré sous bonne garde jusqu'aux laboratoires des <span style="color: #f39c12; font-weight: bold; text-decoration: underline;">Sables Rouges</span>. Traversant ce désert sanglant sous les ordres de ses ravisseurs, il comprit la triste réalité du monde Ninja. C'est au cœur de cette région maudite, privé de tout mais armé de sa seule intelligence, que son sang-froid commença à se figer, laissant place aux premiers pas d'une <span style="color: #f39c12; font-weight: bold;">haine tenace envers Sunagakure</span>.</p>
+  </div>
+</details>
+
+<!-- CHAPITRE 2 -->
+<details class="card-accordion" id="histoire-chapitre-2">
+  <summary>
+    <div class="summary-title" style="color: #e67e22;">Chapitre II : La Traversée des Sables Rouges</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>Transféré sous une escorte stricte et enchaîné comme un criminel de rang supérieur, Shakka découvrit sa nouvelle demeure, une <span style="color: #e74c3c; font-weight: bold; text-decoration: underline;">installation scientifique clandestine</span> profondément enfouie sous la roche et le sable des Sables Rouges. Ce claboratoire secret tenu à l'écart des registres officiels de Sunagakure servait de centre de recherches avancés pour le gouvernement. Ici à l'abri des regards de la population et de tout les villages ninja, les hautes gradés du village cherchaient à comprendre d'ou venait leur maitrise du Chakra si spéciale provenant du  <span style="color: #e67e22; font-weight: bold;">clan Shirogane</span>. Séquestré dans des cellules humides où le silence n'était brisé que par le goutte-à-goutte des canalisations... Le jeune garçon réalisa immédiatement le sort qui lui était réservé il était perçu comme un sujet d'étude inestimable, une ressource à épuiser jusqu'à la dernière goutte de chakra.</p>
+
+    <p>Les semaines et les mois qui suivirent se transformèrent en une longue épreuve d'endurance psychologique. Les chercheurs de Sunagakure soumirent Shakka à une série de tests infernales pour comprendre comment un si jeune garçon pouvait générer et façonner des fils de chakra avec une finesse aussi déconcertante. Privé de la lumière du soleil et soumis à un isolement quasi total, n'importe quel autre enfant aurait fini par briser sa santé mentale. Pourtant c'est précisément au coeur de cette obscurité oppressante que la personnalité de Shakka s'ancra définitivement. Shakka, avec un <span style="color: #e74c3c; font-weight: bold;">sang-froid terrifiant</span> verrouilla ses émotions et montrant un visage de marbre face aux injections et aux interrogatoires.</p>
+
+    <p>Ne pouvant s'entraîner ouvertement, Shakka transforma sa captivité en un terrain d'entraînement mental d'une exigence extrême. Dans le calme glacial de sa cellule, il apprenait à malaxer son chakra de manière microscopique, s'exerçant à faire léviter des grains de poussière ou les gouttelettes de condensation. Il poussait la sensibilité de ses <span style="color: #e67e22; text-decoration: underline;">fils de chakra invisibles</span> jusqu'à des limites inédites, parvenant à ressentir les vibrations du sol à travers les portes blindées. En passant son esprit méthodique enregistrait la moindre routine du laboratoire.</p>
+
+    <p>Alors que les années s'écoulaient, un <span style="color: #e74c3c; font-weight: bold; text-decoration: underline;">affrontement d'une violence inouïe</span> frappa la région des Sables Rouges. Le village de Sunagakure subit un assaut dévastateur qui balaya ses défenses, et le contrecoup atteignit la base secrète. Des explosions retentirent, les plafonds s'effondrèrent et le réseau électrique vola en éclats. Dans ce chaos absolu de poussière et de décombres, Shakka observa la destruction de sa prison avec un regard d'une immobilité parfaite, prêt à saisir l'opportunité qu'il attendait depuis toujours.</p>
+  </div>
+</details>
+
+<!-- CHAPITRE 3 -->
+<details class="card-accordion" id="chap3">
+  <summary>
+    <div class="summary-title" style="color: #922b21;">Chapitre III : L'Empreinte du Sang</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>Le vacarme assourdissant des détonations résonnait encore sous le toit du complexe clandestin lorsque la grille métallique de la cellule céd0a. L'onde de choc subie par les laboratoires des Sables Rouges avait brisé les installations électriques, plongeant les couloirs dans une obscurité la plus totale aidé par la lumière rouge des alarmes de secours. Se frayant un chemin à travers la fumée  et les décombres de pierre, Shakka avançait petit à petit, le regard imperturbable malgré le chaos environnant. C'est au détour d'un couloir, bordé de cuves d'expérimentation brisées, qu'il croisa la route d'un autre détenu qui cherchait désespérément une issue. Le garçon affaibli par des mois de captivité mais porté par une rage de vivre intacte, se nommait <span style="color: #c0392b; font-weight: bold;">Fugo</span>. Dans ce décor d'apocalypse où les scientifiques s'enfuyaient en panique aucun mot ne fut échangé. Un simple regard suffit à sceller une alliance entre les deux jeunes ils avaient le même ennemi, la même haine incrustée au plus profond de leurs chairs ainsi que le même objectif absolu. Shakka utilisa ses fils de chakra pour crocheter à distance les derniers verrous de sécurité bloquant les sorties d'évacuation permettant aux deux fugitifs de forcer le passage et de s'extirper des entrailles de la terre pour s'enfoncer dans le profond desert de Sunagakure enfin ce qu'il en restait...</p>
+
+    <p>La fuite à travers l'immensité du désert s'apparenta à une longue épreuve d'endurance. Privés de nourriture et luttant contre le froid qui succédait à la chaleur étouffante des laboratoires, Shakka et Fugo progressèrent des heures durant en suivant la ligne laissé par les Ninja qui avaient attaqué le vilage pour masquer leurs empreintes. Au cours de ce petit voyage, Fugo se livra par fragments, dévoilant les rancoeurs accumulées face aux injustices qu'il avait subi par les hautes instances de leur village natal. Shakka l'écoutait en silence, écoutant chaque mot sortant de la bouche de Fugo. Pour Shakka, ces confidences ne faisaient que confirmer sa propre vision du monde, la structure politique de Sunagakure était corrompue jusqu'à la moelle, exploitant les siens avant de les jeter dans l'oubli. Mais la liberté acquise dans la douleur fut de courte durée. Aumatin alors que le soleil commençait à éblouir le ciel, une ombre menaçante se dessina au sommet des dunes. Une escouade d'élite Anbu de Sunagakure enfin ce qu'il en restait c'est à dire 2 Anbu d'élite, spécialement déployée pour traquer les fugitifs du laboratoire et dissimuler les preuves de leurs recherches interdites, venait enfin de les retrouver. Leurs visages dissimulés par des masques et leurs bandeaux frontaux arborant fièrement le <span style="color: #c0392b; font-weight: bold; text-decoration: underline;">symbole gravé de Suna</span> ne laissaient aucun doute sur leurs intention...</p>
+
+    <p>Le combat s'engagea avec une brutalité folle. Dépourvu de tout armes, Shakka se retrouvait dans une situation d'une vulnérabilité extrême. Face à la supériorité numérique et à la coordination parfaite des 2 traqueurs il dut se depecher de trouver un plan, mais une idée lui traversa la tête alors autant mourir en faisait quelque chose se dit-il. Tendant des dizaines de filaments invisibles à travers les grains de sable, il tenta de perturber les trajectoires des armes et de bloquer les mouvements de ses assaillants. Lorsqu'un ninja d'élite bondit sur lui pour lui porter le coup de grâce, Shakka poussa la tension de son chakra jusqu'à ses limites théoriques, faisant repasser une onde de choc à travers ses propres fils cela permit de gagner un peu de temps mais pas assez, ce sont des ninja d'élite il s'étonnait déjà de ne pas être mort. Submergés par les vagues d'assaut successives et emmenés au bord d'un ravin, les deux garçons comprirent que la fin était proche... L'un des 2 Anbus de Suna prépara une technique de Doton destinée à les enfouir vivants sous des tonnes de roche.</p>
+
+    <p>C'est à cet instant précis que le destin bascula. Prenant conscience que Shakka possédait un talent unique et une maîtrise du chakra indispensable pour porter un jour le coup de grâce à leurs anciens bourreaux, Fugo prit une décision audacieuse. Sans la moindre hésitation, il s'interposa entre la technique mortelle et Shakka, utilisant son propre corps comme un bouclier humain. Le choc violent de l'attaque transperça Fugo, dont le sang chaud se mélanga au sable du désert. Dans un dernier souffle, il utilisa le peu de force qui lui restait pour repousser brutalement Shakka au fond du ravin.. lui laissant une chance de s'échaper et fit en sorte qu'il ne soit plus dans le champ de vision des ninjas de Suna. Assistant impuissant au <span style="color: #c0392b; font-weight: bold;">sacrifice de Fugo</span>, le coeur de Shakka se figea, encore choqué de ce qu'il venait de voir il ne put s'empecher de trembler et se mit a courir de toute ses forces loin de cette endroit maudit. La vision du corps inanimé de Fugo recouvert par la poussière scella définitivement sa perception d'espoir d'excuse envers Sunagakure. L'épuisement physique extrême combiné aux contrecoups de ses fils de chakra finirent par avoir raison de sa conscience, et Shakka s'effondra dans le noir absolu au milieu du désert...</p>
+
+    <p>L'obscurité céda progressivement la place à des sensations de calme lorsque Shakka reprit conscience. La douleur cuisante qui brûlait ses canaux de chakra s'était apaisée, remplacée par une sensation de chaleur inhabituelle. L'odeur de la poussière de roche et du sang avait disparu. En ouvrant lentement les yeux, il ne vit ni les murs froids du laboratoire ni les dunes immenses du désert mais le plafond d'une modeste demeure isolée. Allongé sur un lit de fortune recouvert de draps épais avec le corps soigneusement bandé, il réalisa qu'il avait été tiré d'une mort certaine. Assis sur le lit, un <span style="color: #c0392b; font-weight: bold;">vieux monsieur</span> au visage creusé par les années préparait silencieusement un remède, observant le réveil du jeune ninja avec un regard empreint d'une bienveillance mystérieuse marquant ainsi le premier jour d'une longue reconstruction.</p>
+  </div>
+</details>
+
+<!-- CHAPITRE 4 -->
+<details class="card-accordion" id="chap4">
+  <summary>
+    <div class="summary-title" style="color: #2980b9;">Chapitre IV : La Terre Humide et l'Éveil de l'Art</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>La maison isolée du vieil homme devenait ainsi le refuge inattendu où Shakka allait passer les sept années suivantes de son existence. L'ancien, un artisan retiré du monde et fin connaisseur des techniques Ninja, ne posa aucune question sur le passé sanglant ou les origines du jeune homme. Il se contenta d'offrir un toit, des soins et un entrainement quotidien. Les premières semaines furent consacrées à une convalescence stricte, permettant aux canaux de chakra de Shakka de se régénérer après la surcharge subie lors de l'évasion. Cependant, le repos forcé laissa rapidement place à un entrainement mental pour se remettre des évenements.. Durant ces sept longues années d'isolement, le quotidien de Shakka fut rythmé par un entraînement intensif, combinant un renforcement physique poussé jusqu'à l'épuisement et des exercices de méditation profonde destinés à parfaire la fluidité de ses mouvements. L'ancien lui enseigna les fondements du ninjutsu élémentaire, Le vieille homme lui fit faire le test du papier, lors du test le papier s'effrita ce qui voulait dire que son élément était le <span style="color: #3498db; font-weight: bold;">Doton</span>. Shakka apprit à maitriser les techniques de base du Doton. Cette affinité avec la terre vint naturellement compléter sa vision du combat, lui offrant une aide solide et une maîtrise accrue de son environnement.</p>
+
+    <p>Parallèlement à son conditionnement physique et élémentaire, Shakka entreprit le projet le plus fondamental de sa carrière de shinobi, la conception de sa toute <span style="color: #3498db; font-weight: bold; text-decoration: underline;">première marionnette</span>. Travaillant sans relâche dans le petit atelier du vieil homme, il façonna le bois, tailla les mécanismes internes et coula des alliages de fortune pour donner vie à sa création. Chaque engrenage, chaque articulation et chaque compartiment secret furent ajustés à la main avec une précision chirurgicale. N'ayant plus à se contenter de simples bouts de bois, il infusait désormais ses fils de chakra dans une structure conçue sur mesure pour décupler sa portée offensive. Cette première marionnette devint le réceptacle de tout son savoir-faire, un prolongement mécanique de sa propre volonté. Vers la fin de ces sept années d'apprentissage, alors que sa maîtrise du Doton était pleinement assimilée et intégrée à son style de jeu, le vieil homme introduisit les concepts subtils de sa nature de prédilection le <span style="color: #3498db; font-weight: bold;">Fūton</span>. Shakka découvrit la capacité d'aiguiser son chakra, d'insuffler des courants d'air tranchants à travers sa marionnette. Cet éveil au Fūton ouvrit des perspectives tactiques inédites, préparant le terrain pour de futures affinités élémentaires plus complexes qu'il développerait bien plus tard.</p>
+
+    <p>La fin de cette parenthèse de sept ans fut marquée par le déclin naturel du vieil homme, qui s'éteignit paisiblement laissant Shakka seul face à son destin. Ayant honoré la mémoire de son mâitre et accompli son temps d'apprentissage, le jeune homme remit sa première marionnette nommé Purple Haze dans son sceau et reprit sa marche vers l'inconnu. En poussant plus au nord (est), Shakka découvrit un environnement différent du désert aride de son enfance ininterrompues, Le village possédait de beaux paysage mais ce changement climatique brutal imposa de nouvelles contraintes même si ce n'était pas la pluie de Ame ce n'était pas le chaud de Suna non plus. La terre humide à certains endroit et sec à d'autres et l'humidité constante de la forêt qui faisait gonfler le bois traditionnels de sa marionnette, et faisait rouiller les engrenages. Face à ces obstacles environnementaux, l'esprit analytique de Shakka s'adapta sans le moindre état d'âme.</p>
+
+    <p>Installé temporairement dans les ateliers clandestins qui bordaient les villes frontalières du Nord, Shakka passa des mois à retravailler l'intégralité de ses composants. Il remplaça les parties vulnérables par des alliages inoxydables, scella les mécanismes contre l'infiltration de l'eau et ajusta la densité de son chakra pour traverser les nappes de brouillard sans perdre en sensibilité. C'est au cœur de ce climat plus au moins étrange et lourd qu'il commença à mener ses premières expériences sur l'intégration des <span style="color: #3498db; font-weight: bold; text-decoration: underline;">vibrations</span> au sein de ses structures mécaniques, réalisant que le son se propageait avec une efficacité redoutable dans cet air chargé d'humidité accompagné avec son Fūton. Ses retouches furent brillantes. </p>
+  </div>
+</details>
+
+
+<!-- CHAPITRE 5 -->
+<details class="card-accordion" id="chap5">
+  <summary>
+    <div class="summary-title" style="color: #8e44ad;">Chapitre V : L'Ombre d'Otogakure</div>
+    <span class="arrow">▼</span>
+  </summary>
+  <div class="content">
+    <p>Au fil des mois passés à voyager dans les régions du Nord-Est, la rumeur concernant un jeune marionnettiste solitaire commença à tourner de plus en plus parmi les mercenaires et les ninjas déserteurs. Shakka s'était fait connaître pour son travail propre et méthodique. Quand il acceptait un contrat ou une mission, il réglait la situation rapidement sans faire de bruit et sans jamais laisser de traces ou de preuves derrière lui. Mais pour faire évoluer son matériel, il ne pouvait pas continuer à travailler dans des conditions moyennes avec des outils de mauvaise qualité. Il avait besoin d'un vrai endroit pour fabriquer ses pièces. C'est ainsi qu'il fit la rencontre d'un vieil artisan métallurgiste qui vivait un peu à l'écart des grandes villes. L'homme vit tout de suite que le jeune Shakka avait un talent rare et qu'il connaissait très bien la mécanique. Il accepta donc de lui louer un coin de son laboratoire et de lui laisser utiliser son matériel. Shakka passa des semaines entières enfermé dans cet atelier. Il travaillait jour et nuit sur l'armature de sa marionnette, Purple Haze, mais aussi sur d'autres pièces de rechange. Il renforça la solidité du bois contre les chocs, régla la vitesse d'ouverture des compartiments secrets et affûta les lames dissimulées dans les bras de ses marionnettes. Il prit aussi le temps de travailler sur la résistance de ses fils de chakra pour être certain qu'ils ne coupent pas au mauvais moment pendant un combat violent.</p>
+
+    <p>C'est durant cette période au calme dans le laboratoire que Shakka décida d'apprendre un troisième élément pour compléter son style de combat. Il maîtrisait déjà le Doton grâce aux enseignements de son maître qui l'avait recueilli après son évasion, ainsi que le Fūton qu'il avait développé pour rendre ses attaques plus rapides et plus tranchantes encore une fois grace à son maître. En observant la manière dont l'eau et l'humidité réagissaient avec les métaux qu'il travaillait dans l'atelier, il commença à s'entraîner à la manipulation du <span style="color: #9b59b6; font-weight: bold;">Suiton</span>. L'apprentissage ne fut pas simple, mais Shakka était déterminé. Il comprit rapidement comment utiliser le Suiton pour compléter son arsenal de ninja. En maîtrisant l'eau, il pouvait maintenant nettoyer ses engrenages en plein milieu d'un affrontement si de la poussière ou de la terre venait à bloquer le mécanisme. Il pouvait aussi utiliser cette réserve d'eau pour créer du brouillard, gêner la vision de ses adversaires ou alourdir leurs vêtements pour les ralentir. Avec le Doton, le Fūton et désormais le Suiton ainsi que d'autres qualités que le vieux maître lui avait appris comme tout ce qui est ninjutsu médicaux, Shakka possédait une palette de techniques très large qui lui permettait de faire face à presque n'importe quelle situation sur le terrain.</p>
+
+    <p>La présence d'un ninja aussi doué et discret dans la région finit par attirer l'attention des hautes instances du village voisin d'Otogakure. Un après-midi, alors que Shakka venait de terminer le réglage d'une pièce mécanique, un homme à l'allure imposante passa la porte du laboratoire. Cet homme n'était pas un simple client ou un mercenaire de passage, il s'agissait de <span style="color: #9b59b6; font-weight: bold; text-decoration: underline;">Shin-Kōrinsha</span>, le dirigeant direct d'Otogakure. Il était venu en personne pour voir le fameux marionnettiste dont tout le monde parlait dans le milieu. Shin-Kōrinsha avait suivi le parcours de Shakka depuis son évasion du laboratoire clandestin des Sables Rouges à Suna. Il savait par quoi le jeune homme était passé, mais il voyait surtout son sang-froid, son intelligence au combat et sa maîtrise de la mécanique. Le dirigeant d'Oto ne tourna pas autour du pot et lui fit directement une proposition claire. Il lui proposa d'installer ses affaires à Otogakure, d'avoir accès à des laboratoires encore plus grands avec des matériaux rares, et d'intégrer les forces du village. Mais Shin-Kōrinsha ne voulait pas juste faire de lui un membre normal il lui proposa de prendre la tête d'un groupe d'élite appelé le <span style="color: #9b59b6; font-weight: bold;">Quartet du Son</span>.</p>
+
+    <p>Shin-Kōrinsha savait que Shakka avait le niveau technique et l'autorité nécessaires pour diriger cette équipe et se faire respecter des autres membres. Pour le jeune homme, cette offre était une occasion parfaite. Rejoindre Oto lui donnait accès à des moyens immenses pour améliorer ses marionnettes, tout en lui offrant une position puissante pour la suite de son parcours. Shakka accepta la proposition du dirigeant et devint ainsi le chef officiel du Quartet du Son. Même si une nouvelle page de sa vie commençait sous les couleurs d'Otogakure, il gardait toujours cachée dans ses affaires cette fameuse bourse remplie du sable chaud de Suna, pour ne jamais oublier d'où il venait et ce qu'il avait subi...</p>
+  </div>
+</details>
+
+      <!-- JUTSUS EN GRILLE -->
+      <div class="card" id="jutsus">
+        <h2 class="section-title">Répertoire des Jutsus (20)</h2>
+        
+        <div class="jutsu-grid">
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Doton - Marécage des Limbes </span>
+              <span class="rank-tag rank-s">Rang S</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">En transformant la surface, sur laquelle se trouve un ennemi, en boue, créant un marécage, l'utilisateur peut faire sombrer son adversaire dans la boue.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title"> Suiton - Déferlante Brûlante</span>
+              <span class="rank-tag rank-s">Rang S</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Il s'agit d'une barrière invincible autoproclamée. En effet, en utilisant des mudrâ, l'utilisateur est capable de créer une barrière protectrice de vent capable de repousser toute attaque qu'il perçoit et de la renvoyer sur l'utilisateur original avec une force égale ou supérieure.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Fûton - Bouclier du Dieu du Vent </span>
+              <span class="rank-tag rank-s">Rang S</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Il s'agit d'une barrière invincible autoproclamée. En effet, en utilisant des mudrâ, l'utilisateur est capable de créer une barrière protectrice de vent capable de repousser toute attaque qu'il perçoit et de la renvoyer sur l'utilisateur original avec une force égale ou supérieure.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Camouflage en Surface </span>
+              <span class="rank-tag rank-a">Rang A</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Grâce à cette technique, l'utilisateur peut traverser son environnement, ce qui lui permet d'éviter rapidement une attaque ou de voyager sans être détecté.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Ninpô - Mer de Brume Infinie </span>
+              <span class="rank-tag rank-a">Rang A</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">L'utilisateur crée un brouillard en extrayant de force toute l'eau contenue dans l'herbe, les arbres, la terre et tous les autres êtres vivants de la zone entière, piégeant tous ceux qui s'y trouvent dans une puissante illusion d'eux-mêmes, semblable à un genjutsu.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Fûton - Vent Divin </span>
+              <span class="rank-tag rank-a">Rang A</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">L'utilisateur libère une rafale de vent qui forme plusieurs petites tornades.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Suiton - Cône du Déluge</span>
+              <span class="rank-tag rank-a">Rang A</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Après avoir malaxé son chakra dans son ventre et l'avoir converti en eau, l'utilisateur l'éjecte par la bouche avec une grande pression qui est capable de couper les racines de l'Arbre Divin facilement.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Clone d'Image Rémanente </span>
+              <span class="rank-tag rank-a">Rang A</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;"> L'utilisateur utilise la technique du Déplacement Instantané et se déplace en créant plusieurs images rémanentes de lui.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title"> Fûton - Déferlantes de Vide </span>
+              <span class="rank-tag rank-b">Rang B</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">L'utilisateur prend sa respiration et expire plusieurs lames de vent à des angles différents, en déplaçant rapidement la tête dans différentes directions.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Technique d'Incorporation</span>
+              <span class="rank-tag rank-b">Rang B</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">À l'aide de cette technique, il est possible de sceller une grande variété d'objets, voire des êtres vivants, à l'intérieur de parchemins, qui seront libérés lorsque le parchemin sera ouvert ou qu'une condition spécifique sera remplie.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Analyse de Zone</span>
+              <span class="rank-tag rank-b">Rang B</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">En touchant une surface solide avec sa main ou son doigt, l'utilisateur peut canaliser son chakra à travers la zone, ce qui lui permet de la scanner avec précision. </p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Cube de Flammes Pourpres</span>
+              <span class="rank-tag rank-b">Rang B</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Une équipe de quatre personnes se tient en formation carrée et exécute cette technique, érigeant une solide barrière entre eux. La barrière est faite de flammes violettes, qui engloutissent instantanément ceux qui entrent en contact avec elle, empêchant ainsi quiconque d'entrer ou de sortir de la zone.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Multi Clonage</span>
+              <span class="rank-tag rank-b">Rang B</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Tout comme la Technique de Clone basique, le Multi Clonage permet de créer des doubles de l'utilisateur. Cependant, ces clones sont des copies physiques et non des illusions.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Technique de clonage du corbeau</span>
+              <span class="rank-tag rank-c">Rang C</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Cette technique permet de créer un clone en projetant son propre chakra vers des dizaines de corbeaux .</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Doton - Drone</span>
+              <span class="rank-tag rank-c">Rang C</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Cette technique permet à l'utilisateur de contrôler à distance les roches afin de les faire léviter et de les déplacer.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Suiton Médical - Moustiques d'Eau</span>
+              <span class="rank-tag rank-c">Rang C</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">L'utilisateur crée des moustiques d'eau, qui peuvent être utilisés pour annuler les effets du poison dans le corps de la cible.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Onde Bestiale </span>
+              <span class="rank-tag rank-c">Rang C</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Une technique puissante de nature de chakra vent qui peut couper et trancher à travers toute matière.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title"> Fûton - Percée </span>
+              <span class="rank-tag rank-d">Rang D</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">L'utilisateur souffle une bourrasque de vent capable de détruire des murs et de repousser les insectes du clan Aburame..</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Déplacement Instantané</span>
+              <span class="rank-tag rank-d">Rang D</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">En utilisant la technique de Déplacement Instantané, un ninja peut parcourir de courtes et longues distances à une vitesse presque intraçable.</p>
+          </div>
+
+          <div class="jutsu-card-v2">
+            <div class="jutsu-header">
+              <span class="jutsu-title">Suiton - Camouflage dans l'Eau</span>
+              <span class="rank-tag rank-d">Rang D</span>
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin:0;">Similaire au Doton - Camouflage dans la Roche, l'utilisateur se confond avec l'eau pour être indétectable par l'ennemi.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAGE 2 : ÉQUIPEMENTS, MARIONNETTES & INVOCATIONS -->
+<div id="equipement-view" class="page-view">
+  
+  <!-- ÉQUIPEMENT GÉNÉRAL -->
+  <div class="card">
+    <h2 class="section-title">Équipement Personnel & Matériel</h2>
+    <div class="equip-grid">
+      <div class="equip-item">
+        <h4>Kit de Shinobi classique</h4>
+        <p style="font-size:0.88rem; color:var(--text-muted);"> Pas mal de chose mais c'est les outils ninja genre kunais, shurikens, senbons, parchemins explosifs et rouleaux de bandages.</p>
+      </div>
+      <div class="equip-item">
+        <h4>Bourse de Sable du Désert</h4>
+        <p style="font-size:0.88rem; color:var(--text-muted);">Contient un sable spécial pour tester rapidement les courants de vent ou calibrer la portée des fils.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNIÈRE MARIONNETTES -->
+  <div class="marionettes-banner-trigger" onclick="togglePuppetRoster()" style="background: linear-gradient(rgba(20, 21, 25, 0.75), rgba(20, 21, 25, 0.75)), url('https://static.wikia.nocookie.net/naruto/images/1/1f/Arcanes_Blancs_-_Dix_Pantins_de_Chikamatsu.png/revision/latest?path-prefix=fr') center/cover no-repeat; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; text-align: center; margin-bottom: 20px;">
+    <h2 style="color: #fff; letter-spacing: 1px;">MARIONNETTES</h2>
+    <span style="color: var(--sand-gold); font-size: 0.9rem;">▶ Cliquez pour afficher le registre</span>
+  </div>
+
+  <!-- SÉLECTEUR DE MARIONNETTES -->
+  <div class="puppet-select-wrapper" id="puppetRosterModule">
+    <div class="roster-grid">
+      <div class="roster-card selected" onclick="selectPuppet('purple_haze', this)">
+        <img src="https://static.jojowiki.com/images/b/b4/latest/20240713060655/Purple_Haze_Distortion_Infobox_Light_Novel.png" alt="Purple Haze">
+        <div class="card-name">Purple Haze</div>
+      </div>
+      
+      <div class="roster-card" onclick="selectPuppet('unknown1', this)">
+        <img src="https://via.placeholder.com/150x220/141519/c87d32?text=???" alt="???">
+        <div class="card-name">???</div>
+      </div>
+      
+      <div class="roster-card" onclick="selectPuppet('unknown2', this)">
+        <img src="https://via.placeholder.com/150x220/141519/7b5294?text=???+???" alt="??? & ???">
+        <div class="card-name">??? & ???</div>
+      </div>
+      
+      <div class="roster-card" onclick="selectPuppet('unknown3', this)">
+        <img src="https://via.placeholder.com/150x220/141519/ff4d4d?text=???" alt="???">
+        <div class="card-name">???</div>
+      </div>
+    </div>
+
+    <div class="puppet-display-panel">
+      <div class="puppet-portrait">
+        <img id="displayImg" src="https://static.jojowiki.com/images/b/b4/latest/20240713060655/Purple_Haze_Distortion_Infobox_Light_Novel.png" alt="Marionnette">
+      </div>
+      <div class="puppet-details">
+        <div class="puppet-title-bar">
+          <h3 id="displayName">Purple Haze</h3>
+          <span id="displayBadge" class="badge">Offensive / Corps à corps</span>
+        </div>
+        <p id="displayDesc" class="puppet-description">
+          Marionnette spécialisée dans la guerre chimique, c'est la première marionette de Shakka qui fait honneur à son ami décédé.
+        </p>
+        <div class="powers-box">
+          <h4>Pouvoirs & Capacités Spéciales</h4>
+          <ul id="displayPowers">
+            <li><strong>/ :</strong>/</li>
+            <li><strong>/ :</strong>/</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNIÈRE INVOCATIONS -->
+  <div class="marionettes-banner-trigger" onclick="toggleSummonRoster()" style="background: linear-gradient(rgba(20, 21, 25, 0.75), rgba(20, 21, 25, 0.75)), url('https://www.gamesider.com/sites/websites_frgsg/files/styles/1200px/public/article/pop-culture/animes/classe-les-10-invocations-les-plus-puissantes-de-naruto.webp?itok=Gx9Ddh2t') center/cover no-repeat; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <h2 style="color: #fff; letter-spacing: 1px;">INVOCATIONS</h2>
+    <span style="color: var(--sand-gold); font-size: 0.9rem;">▶ Cliquez pour afficher le pacte d'invocation</span>
+  </div>
+
+  <!-- SÉLECTEUR D'INVOCATIONS (Masqué par défaut) -->
+  <div class="puppet-select-wrapper" id="summonRosterModule" style="display: none; margin-bottom: 20px;">
+    <div class="roster-grid">
+      <div class="roster-card selected" onclick="selectSummon('corbeaux', this)">
+        <img src="https://www.yzgeneration.com/wp-content/uploads/2016/03/Naruto-Shippuden-%C3%89pisode-451-9.png" alt="Pacte des Corbeaux">
+        <div class="card-name">Corbeaux</div>
+      </div>
+      
+      <div class="roster-card" onclick="selectSummon('summon_unknown1', this)">
+        <img src="https://via.placeholder.com/150x220/141519/7b5294?text=???" alt="???">
+        <div class="card-name">???</div>
+      </div>
+    </div>
+
+    <div class="puppet-display-panel">
+      <div class="puppet-portrait">
+        <img id="displaySummonImg" src="https://www.yzgeneration.com/wp-content/uploads/2016/03/Naruto-Shippuden-%C3%89pisode-451-9.png" alt="Corbeaux">
+      </div>
+      <div class="puppet-details">
+        <div class="puppet-title-bar">
+          <h3 id="displaySummonName">Pacte des Corbeaux</h3>
+          <span id="displaySummonBadge" class="badge">Support / Genjutsu / Infiltration</span>
+        </div>
+        <p id="displaySummonDesc" class="puppet-description">
+          Pacte signé avec la nuée de corbeaux. Permet d'invoquer une multitude de corbeaux pour troubler le champ de vision ennemi, servir de vecteur à des genjutsus ou transmettre rapidement des messages.
+        </p>
+        <div class="powers-box">
+          <h4>Capacités & Aptitudes</h4>
+          <ul id="displaySummonPowers">
+            <li><strong>Nuée de Camouflage :</strong> Invocation massive de corbeaux aveuglant et déstabilisant les cibles.</li>
+            <li><strong>Relais de Chakra :</strong> Possibilité de combiner les corbeaux avec des techniques de permutation ou de clonage.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PAGE 3 : REGISTRE DES MISSIONS -->
+<div id="missions-view" class="page-view">
+  <div class="card">
+    <h2 class="section-title">Historique des Missions / Contrats </h2>
+    <p style="color:var(--text-muted); margin-bottom:20px;">Registre des missions officielles enregistrées dans les archives d'Otogakure.</p>
+
+    <table class="missions-table">
+      <thead>
+        <tr>
+          <th>Mission</th>
+          <th>Rang</th>
+          <th>Type de Missions</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 20px;">
+            Aucune mission / contrat effectué pour le moment.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SCRIPT POUR RENDER CLIQUABLE LE MENU INVOCATIONS -->
+<script>
+  function toggleSummonRoster() {
+    const module = document.getElementById('summonRosterModule');
+    if (module.style.display === 'none' || module.style.display === '') {
+      module.style.display = 'flex';
+    } else {
+      module.style.display = 'none';
+    }
+  }
+
+  function selectSummon(summonKey, cardElem) {
+    // Retirer la classe 'selected' des autres cartes d'invocations
+    const parentGrid = cardElem.parentElement;
+    const cards = parentGrid.querySelectorAll('.roster-card');
+    cards.forEach(c => c.classList.remove('selected'));
+    
+    // Sélectionner la carte cliquée
+    cardElem.classList.add('selected');
+
+    // Données des invocations
+    const data = {
+      'corbeaux': {
+        name: "Pacte des Corbeaux",
+        badge: "Support / Genjutsu / Infiltration",
+        img: "https://www.yzgeneration.com/wp-content/uploads/2016/03/Naruto-Shippuden-%C3%89pisode-451-9.png",
+        desc: "Pacte signé avec la nuée de corbeaux. Permet d'invoquer une multitude de corbeaux pour troubler le champ de vision ennemi, servir de vecteur à des genjutsus ou transmettre rapidement des messages.",
+        powers: [
+          "<strong>Nuée de Camouflage :</strong> Invocation massive de corbeaux aveuglant et déstabilisant les cibles.",
+          "<strong>Relais de Chakra :</strong> Possibilité de combiner les corbeaux avec des techniques de permutation ou de clonage."
+        ]
+      },
+      'summon_unknown1': {
+        name: "???",
+        badge: "Inconnu",
+        img: "https://via.placeholder.com/150x220/141519/7b5294?text=???",
+        desc: "Pacte non révélé pour le moment.",
+        powers: [
+          "<strong>??? :</strong> Spécifications inconnues."
+        ]
+      }
+    };
+
+    const target = data[summonKey];
+    if (target) {
+      document.getElementById('displaySummonName').innerText = target.name;
+      document.getElementById('displaySummonBadge').innerText = target.badge;
+      document.getElementById('displaySummonImg').src = target.img;
+      document.getElementById('displaySummonDesc').innerText = target.desc;
+      
+      const powersUl = document.getElementById('displaySummonPowers');
+      powersUl.innerHTML = '';
+      target.powers.forEach(p => {
+        const li = document.createElement('li');
+        li.innerHTML = p;
+        powersUl.appendChild(li);
+      });
+    }
+  }
+</script>
+
+    <!-- PAGE 3 : REGISTRE DES MISSIONS -->
+<div id="missions-view" class="page-view">
+  <div class="card">
+    <h2 class="section-title">Historique des Missions / Contrats </h2>
+    <p style="color:var(--text-muted); margin-bottom:20px;">Registre des missions officielles enregistrées dans les archives d'Otogakure.</p>
+
+    <table class="missions-table">
+      <thead>
+        <tr>
+          <th>Mission</th>
+          <th>Rang</th>
+          <th>Type de Missions</th>
+          <th>Statut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="4" style="text-align: center; color: var(--text-muted); padding: 20px;">
+            Aucune mission / contrat effectué pour le moment.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </div>
+
+
+  <!-- COLONNE DROITE : INFOBOX PROFIL (RESTE À DROITE) -->
+  <div class="infobox">
+  <div class="infobox-header">Shakka Shirogane</div>
+  
+  <div class="infobox-img">
+    <img src="https://preview.redd.it/shaka-is-my-favorite-gold-saint-whats-yours-v0-xlwiqadvaizd1.jpeg?auto=webp&s=e489809b5e0eb71ef589698720c2405b53ff6cb3" alt="Shakka Shirogane">
+  </div>
+  
+  <div class="infobox-sub">Chef Du Quartet Du Son</div>
+
+  <table class="info-table">
+    <tr>
+      <td class="label">Sexe</td>
+      <td class="value">♂ Masculin</td>
+    </tr>
+    <tr>
+      <td class="label">Âge</td>
+      <td class="value">24 ans</td>
+    </tr>
+    <tr>
+      <td class="label">Statut</td>
+      <td class="value" style="color: #4caf50;">Vivant</td>
+    </tr>
+    <tr>
+      <td class="label">Taille</td>
+      <td class="value">187 cm</td>
+    </tr>
+    <tr>
+      <td class="label">Poids</td>
+      <td class="value">65 kg</td>
+    </tr>
+    <tr>
+      <td class="label">Groupe Sanguin</td>
+      <td class="value">AB</td>
+    </tr>
+    <tr>
+  <td class="label">Origine</td>
+  <td class="value" style="text-align: left !important; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+    <span style="display: inline-flex; align-items: center; gap: 4px; color: var(--sand-gold);">
+      <img src="https://static.wikia.nocookie.net/naruto/images/f/fc/Pays_du_Vent_Symbole.svg/revision/latest?cb=20120818001216&path-prefix=fr" alt="Sunagakure" style="width: 18px; height: 18px; object-fit: contain;">
+      Sunagakure
+    </span>
+    <span style="color: #ffffff;">(Récemment </span>
+    <span style="display: inline-flex; align-items: center; gap: 4px; color: #2b7fff;">
+      <img src="https://static.wikia.nocookie.net/naruto/images/3/33/Pays_de_l%27Eau_Symbole.svg/revision/latest?cb=20120818001300&path-prefix=fr" alt="Kirigakure" style="width: 18px; height: 18px; object-fit: contain;">
+      Kirigakure
+    </span>
+    <span style="color: #ffffff;">)</span>
+  </td>
+</tr>
+    </tr>
+   <tr>
+  <td class="label">Village</td>
+  <td class="value" style="color: var(--oto-purple); display: flex; align-items: center; gap: 6px;">
+    <img src="https://static.wikia.nocookie.net/naruto/images/a/aa/Pays_du_Son_Symbole.svg/revision/latest?cb=20200601171054&path-prefix=fr" alt="Otogakure" style="width: 18px; height: 18px; object-fit: contain;">
+    <span>Otogakure</span>
+  </td> 
+</tr>
+    <tr>
+      <<tr>
+  <td class="label">Clan</td>
+  <td class="value" style="display: flex; align-items: center; gap: 6px;">
+    <img src="https://static.wikia.nocookie.net/naruto/images/8/8a/Shirogane_Symbole.svg/revision/latest?cb=20140724181914&path-prefix=fr" alt="Clan Shirogane" style="width: 18px; height: 18px; object-fit: contain;">
+    <span>Clan Shirogane</span>
+  </td>
+</tr>
+    </tr>
+    <tr>
+      <td class="label">Rang</td>
+      <td class="value">???</td>
+    </tr>
+    <tr>
+      <td class="label">Affiliation</td>
+      <td class="value">Quartet Du Son</td>
+    </tr>
+    <tr>
+     <tr>
+    <td class="label">Nature(s) de Chakra</td>
+    <td class="value" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <!-- Doton -->
+        <span style="display: inline-flex; align-items: center; gap: 4px;">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfgf9k6-98b648d5-d3e6-484e-a7b0-3d61216eb32e.png/v1/fill/w_894,h_894/doton_icon_by_jormxdos_dfgf9k6-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZnZjlrNi05OGI2NDhkNS1kM2U2LTQ4NGUtYTdiMC0zZDYxMjE2ZWIzMmUucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.DZ1NxfgvRCYJkIHTzSrqsInlVoPlF6QAE5k00Ic6gmQ" alt="Doton" style="width: 18px; height: 18px; object-fit: contain;"> Doton
+        </span>
+        <!-- Fūton -->
+        <span style="display: inline-flex; align-items: center; gap: 4px;">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfgf9jw-78864504-9d41-4671-b0bc-0ef760f9bd19.png/v1/fill/w_1280,h_1280/futon_icon_by_jormxdos_dfgf9jw-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZnZjlqdy03ODg2NDUwNC05ZDQxLTQ2NzEtYjBiYy0wZWY3NjBmOWJkMTkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.DyvGeehgRyPj0TNXenOcZqRFoQiaTCB-Iti1bymVxEM" alt="Fūton" style="width: 18px; height: 18px; object-fit: contain;"> Fūton
+        </span>
+        <!-- Suiton -->
+        <span style="display: inline-flex; align-items: center; gap: 4px;">
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e8ddc4da-23dd-4502-b65b-378c9cfe5efa/dfgf9kc-1763d109-b9d0-488a-a690-5fc9ce307bf7.png/v1/fill/w_1280,h_1280/suiton_icon_by_jormxdos_dfgf9kc-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiIvZi9lOGRkYzRkYS0yM2RkLTQ1MDItYjY1Yi0zNzhjOWNmZTVlZmEvZGZnZjlrYy0xNzYzZDEwOS1iOWQwLTQ4OGEtYTY5MC01ZmM5Y2UzMDdiZjcucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.i14uvd_39E6UdBNUvS0itTNAaQlzSrWGw2BLc2sYyKw" alt="Suiton" style="width: 18px; height: 18px; object-fit: contain;"> Suiton
+        </span>
+    </td>
+    </tr>
+  </table>
+
+  <details open>
+    <summary>Spécialités Ninja</summary>
+    <div class="details-body">
+      <ul>
+        <li><strong>Bukijutsu :</strong> Expert</li>
+        <li><strong>Fuinjutsu :</strong> Avancé</li>
+        <li><strong>Ninjutsu Médicaux :</strong> Intermédiaire</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>Registre des Jutsus</summary>
+    <div class="details-body">
+      <ul>
+        <li>20 Techniques enregistrées</li>
+        <li>3 Rang S | 5 Rang A</li>
+        <li>5 Rang B | 4 Rang C</li>
+        <li>3 Rang D</li>
+      </ul>
+    </div>
+  </details>
+</div>
+        
+
+  </div>
+
+</div>
+
+<script>
+  // CHANGEMENT D'ONGLETS
+  function switchView(viewId, btn) {
+    document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    
+    document.getElementById(viewId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // AFFICHER / MASQUER LE SÉLECTEUR DE MARIONNETTES
+  function togglePuppetRoster() {
+    const module = document.getElementById('puppetRosterModule');
+    module.classList.toggle('open');
+  }
+
+  // BASE DE DONNÉES DES MARIONNETTES
+    const puppetsData = {
+    purple_haze: {
+        name: "Purple Haze",
+        badge: "Offensive / Virus",
+        img: "https://static.jojowiki.com/images/b/b4/latest/20240713060655/Purple_Haze_Distortion_Infobox_Light_Novel.png",
+        desc: "Marionnette spécialisée dans la guerre chimique et biologique. Son corps renferme des capsules de virus mortels qu'elle libère lors des impacts.",
+        powers: [
+        "<strong>Capsules Virales :</strong> Libère un gaz hautement toxique au moindre choc.",
+        "<strong>Force Brute :</strong> Capable de briser des structures solides d'un seul coup.",
+        "<strong>Instabilité :</strong> Attaques imprévisibles et agressivité maximale au corps à corps."
+        ]
+    
+    },
+    unknown1: {
+      name: "???",
+      badge: "Inconnu",
+      img: "/",
+      desc: "Cette marionnette n'a pas encore été révélée...",
+      powers: [
+        "<strong>??? :</strong> Capacité non révélée."
+      ]
+    },
+    unknown2: {
+      name: "??? & ???",
+      badge: "Inconnu",
+      img: "/",
+      desc: "Cette marionnette n'a pas encore été révélée...",
+      powers: [
+        "<strong>??? :</strong> Capacité non révélée."
+      ]
+    },
+    unknown3: {
+      name: "???",
+      badge: "Inconnu",
+      img: "/",
+      desc: "Cette marionnette n'a pas encore été révélée...",
+      powers: [
+        "<strong>??? :</strong> Capacité non révélée."
+      ]
+    }
+  };
+
+  // CLIC SUR UNE MARIONNETTE
+  function selectPuppet(key, cardEl) {
+    document.querySelectorAll('.roster-card').forEach(c => c.classList.remove('selected'));
+    cardEl.classList.add('selected');
+
+    const data = puppetsData[key];
+    if (!data) return;
+
+    document.getElementById('displayName').innerText = data.name;
+    document.getElementById('displayBadge').innerText = data.badge;
+    document.getElementById('displayImg').src = data.img;
+    document.getElementById('displayDesc').innerText = data.desc;
+
+    const powersList = document.getElementById('displayPowers');
+    powersList.innerHTML = '';
+    data.powers.forEach(p => {
+      const li = document.createElement('li');
+      li.innerHTML = p;
+      powersList.appendChild(li);
+    });
+  }
+</script>
+
+</body>
+</html>
