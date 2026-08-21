@@ -37,7 +37,7 @@
         radial-gradient(circle at 80% 80%, rgba(123, 82, 148, 0.05) 0%, transparent 40%);
     }
 
-    /* STRUCTURE PRINCIPALE : 2 COLONNES AVEC INFOBOX FIXE À DROITE */
+    /* MAIN */
     .container {
       max-width: 1280px;
       margin: 0 auto;
@@ -47,7 +47,7 @@
       align-items: start;
     }
 
-    /* BANNIÈRE EN-TÊTE */
+    /* BANNER*/
     .header-banner {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, #181920 0%, #0d0d0f 100%);
@@ -95,7 +95,7 @@
       color: #b388ff;
     }
 
-    /* ONGLETS NAVIGATION */
+    /* NAVIG */
     .page-nav {
       grid-column: 1 / -1;
       display: flex;
@@ -216,7 +216,7 @@
       margin-bottom: 0;
     }
 
-    /* BACKGROUNDS DES CHAPITRES */
+    /* BACK CHAP */
     #chap1 {
       background: linear-gradient(135deg, var(--bg-card) 50%, rgba(212, 175, 55, 0.12));
       border-left: 4px solid var(--sand-gold);
@@ -244,7 +244,7 @@
       box-shadow: inset 0 0 20px rgba(123, 82, 148, 0.15);
     }
 
-    /* GRILLE DE JUTSUS */
+    /* JUTSU  */
     .jutsu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -292,7 +292,7 @@
     .rank-c { background: rgba(70, 130, 180, 0.2); color: #4682b4; border: 1px solid #4682b4; }
     .rank-d { background: rgba(128, 128, 128, 0.2); color: #aaa; border: 1px solid #aaa; }
 
-    /* TABLE DE MISSIONS */
+    /* MSSIONS */
     .missions-table {
       width: 100%;
       border-collapse: collapse;
@@ -339,7 +339,7 @@
       margin-bottom: 6px;
     }
 
-    /* BANNIÈRE MARIONNETTES */
+    /* BANNER PUPPET */
     .marionettes-banner-trigger {
       position: relative;
       height: 140px;
@@ -457,7 +457,7 @@
       color: #000;
     }
 
-    /* PANNEAU D'AFFICHAGE DÉTAILLÉ DE LA MARIONNETTE */
+    /* DETAILS PUPPET */
     .puppet-display-panel {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -535,7 +535,7 @@
       margin-bottom: 3px;
     }
 
-    /* INFOBOX LATÉRALE (FIXE À DROITE) */
+    /* INFO BOX */
     .infobox {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -659,7 +659,7 @@
 
 <div class="container">
 
-  <!-- BANNIÈRE EN-TÊTE -->
+  <!-- HEAD BANNER-->
   <div class="header-banner">
     <div class="header-title">
       <h1>Shakka Shirogane</h1>
@@ -671,17 +671,17 @@
     </div>
   </div>
 
-  <!-- NAVIGATION DES ONGLETS -->
+  <!-- NAVI PAGE -->
   <div class="page-nav">
     <button class="nav-tab active" onclick="switchView('profil-view', this)">Fiche du Personnage</button>
     <button class="nav-tab" onclick="switchView('equipement-view', this)">Équipements & Armes</button>
     <button class="nav-tab" onclick="switchView('missions-view', this)">Bilan des Missions</button>
   </div>
 
-  <!-- COLONNE PRINCIPALE (GAUCHE) -->
+  <!-- CMAIN LEFT -->
   <div class="main-content">
 
-    <!-- PAGE 1 : PROFIL & JUTSUS -->
+    <!--PROFIL JUTSU -->
     <div id="profil-view" class="page-view active">
 
       <div class="toc-box">
@@ -740,7 +740,7 @@
     box-shadow: 0 4px 20px rgba(81, 46, 95, 0.35); 
   }
 
-  /* Hover accentué */
+  /* aD */
   .card-accordion#profil:hover { box-shadow: 0 6px 25px rgba(144, 32, 32, 0.4); }
   .card-accordion#histoire-chapitre-1:hover { box-shadow: 0 6px 25px rgba(212, 172, 13, 0.35); }
   .card-accordion#histoire-chapitre-2:hover { box-shadow: 0 6px 25px rgba(211, 84, 0, 0.35); }
@@ -748,9 +748,7 @@
   .card-accordion#chap4:hover { box-shadow: 0 6px 25px rgba(31, 97, 141, 0.45); }
   .card-accordion#chap5:hover { box-shadow: 0 6px 25px rgba(81, 46, 95, 0.5); }
 
-  /* ==========================================
-     EN-TÊTE / SUMMARY
-     ========================================== */
+  /*SUMMARY*/
   .card-accordion summary {
     display: flex;
     align-items: center;
@@ -772,7 +770,7 @@
     display: none;
   }
 
-  /* Titre centré + barre de couleur */
+  /* TITLE COLOR */
   .summary-title {
     display: flex;
     align-items: center;
@@ -793,7 +791,7 @@
     box-shadow: 0 0 8px currentColor;
   }
 
-  /* Flèche indicatrice */
+  /* ARROW*/
   .arrow {
     color: #e74c3c;
     font-size: 0.85rem;
@@ -805,9 +803,7 @@
     color: #ffffff;
   }
 
-  /* ==========================================
-     CONTENU TEXTE
-     ========================================== */
+  /* TEXT CONTENT */
   .card-accordion .content {
     padding: 20px 24px 15px 24px;
     line-height: 1.7;
@@ -932,7 +928,7 @@
   </div>
 </details>
 
-      <!-- JUTSUS EN GRILLE -->
+      <!-- JUTSUS GRID -->
       <div class="card" id="jutsus">
         <h2 class="section-title">Répertoire des Jutsus (20)</h2>
         
@@ -1101,7 +1097,7 @@
 
     </div>
 
-    <!-- PAGE 2 : ÉQUIPEMENTS, MARIONNETTES & INVOCATIONS -->
+    <!-- EQUIPMENT INVOC PUPPET -->
 <div id="equipement-view" class="page-view">
   
   <!-- ÉQUIPEMENT GÉNÉRAL -->
@@ -1119,13 +1115,13 @@
     </div>
   </div>
 
-  <!-- BANNIÈRE MARIONNETTES -->
+  <!-- BANNER PUPPET -->
   <div class="marionettes-banner-trigger" onclick="togglePuppetRoster()" style="background: linear-gradient(rgba(20, 21, 25, 0.75), rgba(20, 21, 25, 0.75)), url('https://static.wikia.nocookie.net/naruto/images/1/1f/Arcanes_Blancs_-_Dix_Pantins_de_Chikamatsu.png/revision/latest?path-prefix=fr') center/cover no-repeat; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; text-align: center; margin-bottom: 20px;">
     <h2 style="color: #fff; letter-spacing: 1px;">MARIONNETTES</h2>
     <span style="color: var(--sand-gold); font-size: 0.9rem;">▶ Cliquez pour afficher le registre</span>
   </div>
 
-  <!-- SÉLECTEUR DE MARIONNETTES -->
+  <!-- PUPPET SELECTOR -->
   <div class="puppet-select-wrapper" id="puppetRosterModule">
     <div class="roster-grid">
       <div class="roster-card selected" onclick="selectPuppet('purple_haze', this)">
@@ -1172,13 +1168,13 @@
     </div>
   </div>
 
-  <!-- BANNIÈRE INVOCATIONS -->
+  <!-- BANNER INVOCATIONS -->
   <div class="marionettes-banner-trigger" onclick="toggleSummonRoster()" style="background: linear-gradient(rgba(20, 21, 25, 0.75), rgba(20, 21, 25, 0.75)), url('https://www.gamesider.com/sites/websites_frgsg/files/styles/1200px/public/article/pop-culture/animes/classe-les-10-invocations-les-plus-puissantes-de-naruto.webp?itok=Gx9Ddh2t') center/cover no-repeat; padding: 25px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; text-align: center; margin-top: 20px; margin-bottom: 20px;">
     <h2 style="color: #fff; letter-spacing: 1px;">INVOCATIONS</h2>
     <span style="color: var(--sand-gold); font-size: 0.9rem;">▶ Cliquez pour afficher le pacte d'invocation</span>
   </div>
 
-  <!-- SÉLECTEUR D'INVOCATIONS (Masqué par défaut) -->
+  <!-- INVOCATIONS SELECTOR -->
   <div class="puppet-select-wrapper" id="summonRosterModule" style="display: none; margin-bottom: 20px;">
     <div class="roster-grid">
       <div class="roster-card selected" onclick="selectSummon('corbeaux', this)">
@@ -1217,7 +1213,7 @@
 
 </div>
 
-<!-- PAGE 3 : REGISTRE DES MISSIONS -->
+<!-- MISSION LIST -->
 <div id="missions-view" class="page-view">
   <div class="card">
     <h2 class="section-title">Historique des Missions / Contrats </h2>
@@ -1243,7 +1239,7 @@
   </div>
 </div>
 
-<!-- SCRIPT POUR RENDER CLIQUABLE LE MENU INVOCATIONS -->
+<!-- CLICK-->
 <script>
   function toggleSummonRoster() {
     const module = document.getElementById('summonRosterModule');
@@ -1255,15 +1251,15 @@
   }
 
   function selectSummon(summonKey, cardElem) {
-    // Retirer la classe 'selected' des autres cartes d'invocations
+   
     const parentGrid = cardElem.parentElement;
     const cards = parentGrid.querySelectorAll('.roster-card');
     cards.forEach(c => c.classList.remove('selected'));
     
-    // Sélectionner la carte cliquée
+    
     cardElem.classList.add('selected');
 
-    // Données des invocations
+   
     const data = {
       'corbeaux': {
         name: "Pacte des Corbeaux",
@@ -1304,7 +1300,7 @@
   }
 </script>
 
-    <!-- PAGE 3 : REGISTRE DES MISSIONS -->
+    <!--MISSION AG-->
 <div id="missions-view" class="page-view">
   <div class="card">
     <h2 class="section-title">Historique des Missions / Contrats </h2>
@@ -1333,7 +1329,7 @@
   </div>
 
 
-  <!-- COLONNE DROITE : INFOBOX PROFIL (RESTE À DROITE) -->
+  <!-- RIGHT INFOBOX -->
   <div class="infobox">
   <div class="infobox-header">Shakka Shirogane</div>
   
@@ -1458,7 +1454,7 @@
 </div>
 
 <script>
-  // CHANGEMENT D'ONGLETS
+  
   function switchView(viewId, btn) {
     document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
@@ -1467,13 +1463,13 @@
     btn.classList.add('active');
   }
 
-  // AFFICHER / MASQUER LE SÉLECTEUR DE MARIONNETTES
+ 
   function togglePuppetRoster() {
     const module = document.getElementById('puppetRosterModule');
     module.classList.toggle('open');
   }
 
-  // BASE DE DONNÉES DES MARIONNETTES
+  
     const puppetsData = {
     purple_haze: {
         name: "Purple Haze",
@@ -1516,7 +1512,7 @@
     }
   };
 
-  // CLIC SUR UNE MARIONNETTE
+ 
   function selectPuppet(key, cardEl) {
     document.querySelectorAll('.roster-card').forEach(c => c.classList.remove('selected'));
     cardEl.classList.add('selected');
